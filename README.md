@@ -9,14 +9,20 @@ This repository contains the implementation of our research:
 The project presents an end-to-end Speech Emotion Recognition (SER) pipeline that integrates:
 
 🎧 GAN-based audio denoising (U-Net generator)
+
 🎼 Multi-feature extraction (MFCC, Chroma, Spectral Contrast, Mel-Spectrogram)
+
 🧠 Hybrid CNN–BiLSTM–Attention model
+
 🔊 Optional Wav2Vec2 fine-tuning (raw audio)
+
 
 The system is designed to improve robustness under noisy real-world conditions and achieves 98.86% accuracy on RAVDESS.
 
 📂 Repository Structure
+
 Robust-SER-GAN-CNN-BiLSTM/
+
 │
 ├── preprocessing/        # Data loading & feature extraction
 ├── gan_denoiser/        # GAN model (U-Net Generator + Discriminator)
@@ -29,6 +35,7 @@ Robust-SER-GAN-CNN-BiLSTM/
 ├── checkpoints/         # Saved models
 └── README.md
 ⚙️ Requirements
+
 Python ≥ 3.8
 PyTorch
 NumPy
@@ -42,7 +49,9 @@ Transformers (for Wav2Vec2)
 Install dependencies:
 
 pip install -r requirements.txt
+
 📥 Dataset
+
 
 We use the RAVDESS dataset:
 
@@ -52,11 +61,15 @@ neutral, calm, happy, sad, angry, fearful, disgust, surprised
 
 Download from:
 
+
 👉 https://zenodo.org/record/1188976
+
 
 🧹 Data Preprocessing
 
+
 Run preprocessing to extract features:
+
 
 python preprocessing/run_preprocessing.py --data_dir <RAVDESS_PATH>
 Output Structure:
@@ -73,12 +86,17 @@ MFCC extraction (40 coefficients)
 Feature fusion (MFCC + Chroma + Spectral Contrast + Mel)
 Label encoding
 Train/validation/test split
+
 🤖 GAN-Based Audio Denoising
+
 
 Train the GAN model:
 
+
 python gan_denoiser/train_gan.py
+
 Architecture:
+
 Generator: U-Net (encoder–decoder with skip connections)
 Discriminator: CNN-based binary classifier
 Loss Function:
@@ -88,7 +106,9 @@ Adversarial loss (BCE)
 After training, denoise audio:
 
 python gan_denoiser/denoise.py --input_dir <noisy_audio> --output_dir <clean_audio>
+
 🧠 SER Model (CNN–BiLSTM–Attention)
+
 
 Train the emotion recognition model:
 
@@ -98,9 +118,12 @@ Conv1D layers → feature extraction
 BiLSTM → temporal modeling
 Multi-head attention → focus on emotional cues
 Dense + Softmax → classification
+
 🔄 Full Pipeline Training
 
+
 To run the full pipeline:
+
 
 bash training/full_pipeline.sh
 Pipeline Steps:
@@ -110,21 +133,27 @@ Denoise audio samples
 Extract features
 Train CNN–BiLSTM model
 Evaluate results
+
 📊 Evaluation
+
 
 Run evaluation:
 
+
 python evaluation/evaluate.py
+
 Metrics:
 Accuracy
 Precision / Recall / F1-score
 Confusion Matrix
 Precision-Recall Curves
+
 📈 Visualization
 
 Generate plots:
 
 python visualization/plot_results.py
+
 
 Includes:
 
@@ -143,7 +172,9 @@ Output:
 Predicted emotion
 Confidence scores
 Spectrogram visualization
+
 🤖 Wav2Vec2 (Optional)
+
 
 Fine-tune transformer-based model:
 
@@ -155,6 +186,7 @@ Uses raw waveform input
 Learns contextual representations
 Improves performance in low-feature scenarios
 🧪 Results
+
 Model	Accuracy
 CNN only	~92%
 CNN + BiLSTM	~96%
@@ -179,6 +211,7 @@ If you use this work, please cite:
   journal={MDPI},
   year={2025}
 }
+
 📧 Contact
 
 Bakri Ahmed
