@@ -1,5 +1,5 @@
-# Bakri-Ahemd
-Abstract
+# Abstract
+
 Robust Emotion Recognition Through Generative Adversarial Audio Enhancement and Multi-Branch Deep Learning Models
 Speech emotion recognition (SER) has become a technology in affective computing, human–computer interaction, mental health surveillance, and smart voice assistants. Lately, deep learning approaches—convolutional, recurrent, and adversarial neural networks—have made significant advancements in SER accuracy. Nonetheless, applying SER in scenarios continues to be difficult because of noise disruption, inadequate feature extraction, and confusion between acoustically similar emotions. This analysis explores an end-to-end learning workflow integrating: (1) preprocessing of the RAVDESS emotional speech dataset, (2) improved MFCC-centered feature extraction, (3) audio denoising via GAN employing a U-Net generator, and (4) a CNN-LSTM combined model for ultimate emotion recognition. We assess this integrated framework against studies emphasizing parallels with leading SER techniques, outlining performance patterns reported in the literature, and suggesting paths for future investigations. Results show that integrating denoising GANs into the SER pipeline significantly improves robustness and accuracy under noisy conditions. The hybrid model achieves 98.86\% accuracy on the RAVDESS dataset. This work provides both a comprehensive review and a practical implementation roadmap for next-generation emotion recognition models.
 Keywords: Speech Emotion Recognition; Hybrid CNN–BiLSTM2; GAN ; MFCCs.
